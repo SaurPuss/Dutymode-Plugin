@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DutyMode_1_15/DutyMode_1_15.iml" filepath="$PROJECT_DIR$/DutyMode_1_15/DutyMode_1_15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dutymode-Plugin.iml" filepath="$PROJECT_DIR$/Dutymode-Plugin.iml" />
+    </modules>
+  </component>
+</project>

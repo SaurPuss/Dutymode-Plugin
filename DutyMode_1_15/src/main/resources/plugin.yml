@@ -1,0 +1,7 @@
+name: DutyMode
+version: ${project.version}
+main: me.saurpuss.dutymode.DutyMode
+api-version: 1.13
+prefix: DUTY
+authors: [SaurPuss]
+website: https://github.com/SaurPuss/Dutymode-Plugin
