@@ -1,7 +1,68 @@
 name: DutyMode
 version: ${project.version}
 main: me.saurpuss.dutymode.DutyMode
-api-version: 1.13
+api-version: '1.15'
 prefix: DUTY
 authors: [SaurPuss]
-website: https://github.com/SaurPuss/Dutymode-Plugin
+description: Allow groups on your server to switch between duty mode and normal mode. Allowing for flexible staffing requirements.
+website: https://github.com/SaurPuss
+
+
+commands:
+  duty:
+    description: Performs different duty mode actions
+    usage: Use /<command> help for more information
+    aliases: [dm, dutymode]
+    permission: duties.use
+    permission-message: "Unknown command."
+
+#  /<command> - Toggle duty mode
+#  /<command> on - Enable duty mode
+#  /<command> off - Disable duty mode
+#  /<command> [?|help] - Display command help
+#  /<command> [player] toggle - Toggle duty mode for another player
+#  /<command> [player] on - Enable duty mode for another player
+#  /<command> [player] off - Disable duty mode for another player
+#  /<command> purge - Disable duty mode for all online players
+#  /<command> list - Display all online players with access to duty mode
+#  /<command> list active - Display all online players with active duty mode
+#  /<command> list inactive - Display all online players with inactive duty mode
+#  /<command> restore - Restore the last snapshot taken before toggling duty mode on
+#  /<command> [player] restore - Restore the last snapshot taken before duty for another player
+#  /<command> reload - Reload plugin configurations
+
+
+permissions:
+  duties.*:
+    description: Access to full duty permissions
+    default: false
+    children:
+      duties.use: true
+      duties.reload: true
+  duties.use:
+    description: Permission to use the /duty commands
+    default: op
+    children:
+      duties.help: true
+      duties.notify: true
+  duties.reload:
+    description: Reload the Duties configurations
+    default: false
+  duties.others:
+    description: Toggle dutymode for others
+    default: op
+    children:
+      duties.list: true
+      duties.purge: true
+  duties.purge:
+    description: Force all users on duty to go off dutymode
+    default: op
+  duties.help:
+    description: Retrieve Duties help with /duty [help|?]
+    default: op
+  duties.list:
+    description: List online users that have access to /duty
+    default: op
+  duties.notify:
+    description: Be notified when another duties user goes on or off duty
+    default: op

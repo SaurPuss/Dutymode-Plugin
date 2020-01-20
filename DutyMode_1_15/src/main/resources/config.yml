@@ -1,0 +1,82 @@
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
+#                            - Welcome to your Duties configuration! -
+# TODO intro stuff
+#
+#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
+#                                        - Settings -
+# -
+# TODO enable?
+# -
+# Duties needs to back up player data as a safety net, the default way of saving is through a file
+# for each player that's stored inside the 'save' folder. These back-ups allow a duties user to
+# restore the last saved pre-duty state once they are out of duty. This is a fallback in case of
+# errors during runtime such as an inventory wipe or level reset.
+# Every time a player goes on duty a copy of their current inventory, game-mode, health, etc.
+# gets saved.
+# Choose a storage method for player data by setting the value for storage-method. You can choose
+# from: FILE (default), MYSQL.
+# If your saving method is SQL make sure to fill out the sql-settings, otherwise the default
+# storage will be implemented.
+# -
+# TODO messages
+# Use & or § for color codes
+# -
+# TODO groups w. example
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- #
+
+# TODO persist-offline: false
+# Choose from: FILE, MYSQL
+storage-method: FILE
+
+# TODO
+sql-settings:
+  host: ''
+  port: ''
+  database: ''
+  username: ''
+  password: ''
+
+messages:
+  duty-on: "&9You are now in duty mode!"
+  duty-off: "&9You are no longer in duty mode!"
+  duty-notify-on: "&3%PLAYER_NAME% &9is on duty!"
+  duty-notify-off: "&3%PLAYER_NAME% &9is no longer on duty!"
+  duty-reminder: "&9Remember you are in duty mode!"
+  duty-itemdrop: "&cYou are not allowed to drop items while on duty!"
+  group-not-found: "&cCan't find duty group!"
+  disable-duty-fail: "&cFailed to disable duty mode!"
+  memory-retrieve-fail: "&cFailed to retrieve memory from storage!"
+  memory-save-fail: "&cFailed to save memory to storage!"
+
+
+
+
+  duty-others-enable-succes: "You have enabled duty mode for %PLAYER_NAME%!"
+  duty-others-enable-fail: "Failed to enable duty mode for %PLAYER_NAME%!"
+  duty-others-no-permission: "You do not have permission to toggle dutymode for others!"
+  duty-purged: "Purged all active duty mode users!"
+
+# Testing some default stuff, TODO move to example instead
+group:
+  duty:
+    broadcast: true
+    # reminder is in seconds
+    reminder: 360
+    duty-inventory: true
+    duty-items:
+      - #TODO add item string
+    toggle-op: false
+    game-mode: CREATIVE
+    drop-items: false
+    # TODO add duty items
+    #    invincible: true TODO?
+    temporary-permissions:
+      - example.duty-permission.one
+      - example.duty-permission.two
+    console-commands-on:
+      - vanish %PLAYER_NAME%
+      - lp user %PLAYER_NAME% permission set group.duty-permission true
+    console-commands-off:
+      - unvanish %PLAYER_NAME%
+      - lp user %PLAYER_NAME% permission unset group.duty-permission
