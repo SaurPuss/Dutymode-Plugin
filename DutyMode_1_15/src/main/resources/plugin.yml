@@ -1,7 +1,7 @@
 name: DutyMode
 version: ${project.version}
 main: me.saurpuss.dutymode.DutyMode
-api-version: '1.15'
+api-version: 1.13 # TODO double check in case of item factory in duty mode
 prefix: DUTY
 authors: [SaurPuss]
 description: Allow groups on your server to switch between duty mode and normal mode. Allowing for flexible staffing requirements.
